@@ -7,6 +7,9 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>mysql Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties>
+	<jdk.version>1.8</jdk.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -20,7 +23,28 @@
 	<version>3.1.0</version>
 </dependency>
   </dependencies>
+  
   <build>
-    <finalName>mysql</finalName>
-  </build>
+		<finalName>mysql</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
